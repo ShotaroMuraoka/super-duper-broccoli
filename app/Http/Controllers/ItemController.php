@@ -34,7 +34,7 @@ class ItemController extends Controller
         $item = new Item();
         $item->name = $request->name;
         $item->save();
-        return redirect()->route('items.index');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -60,7 +60,7 @@ class ItemController extends Controller
     {
         $item->completed = $request->completed;
         $item->save();
-        return redirect()->route('items.index');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -69,6 +69,6 @@ class ItemController extends Controller
     public function destroy(Item $item): RedirectResponse
     {
         $item->delete();
-        return redirect()->route('items.index');
+        return redirect()->route('dashboard');
     }
 }
