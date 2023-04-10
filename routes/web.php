@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ScheduleController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -43,6 +44,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/items', 'store');
         Route::patch('/items/{item}', 'update');
         Route::delete('/items/{item}', 'destroy');
+    });
+
+    Route::controller(ScheduleController::class)->group(function () {
+        Route::get('/schedules', 'index')->name('schedules.index');
+    });
+
+    Route::controller(BudgetController::class)->group(function() {
+        Route::get('budgets', 'index')->name('budgets.index');
+
     });
 });
 

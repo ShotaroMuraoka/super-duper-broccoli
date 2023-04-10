@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class ItemController extends Controller
+class ScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): Response
     {
-        return Inertia::render('ShoppingList', ['items' => Item::query()->orderByDesc('id')->get()]);
+        return Inertia::render('Schedule', ['items' => Item::all()]);
     }
 
     /**
@@ -29,12 +28,9 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $item = new Item();
-        $item->name = $request->name;
-        $item->save();
-        return redirect()->route('items.index');
+        //
     }
 
     /**
@@ -56,19 +52,16 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Item $item): RedirectResponse
+    public function update(Request $request, string $id)
     {
-        $item->completed = $request->completed;
-        $item->save();
-        return redirect()->route('items.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Item $item): RedirectResponse
+    public function destroy(string $id)
     {
-        $item->delete();
-        return redirect()->route('items.index');
+        //
     }
 }

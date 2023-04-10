@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout'
 import { Head } from '@inertiajs/react'
 import ShoppingList from '@/Pages/ShoppingList'
 
-export default function Dashboard ({ auth, items }) {
+export default function Budget ({ auth, items }) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -10,7 +10,9 @@ export default function Dashboard ({ auth, items }) {
         >
             <Head title="Dashboard"/>
             <div className="flex-1 px-4 py-2">
-                ダッシュボードだよーん
+                <ShoppingList
+                    items={items}
+                />
             </div>
         </AuthenticatedLayout>
     )

@@ -14,14 +14,25 @@ export default function Authenticated({ user, header, children }) {
                         <div className="flex">
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                    ダッシュボード
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                {/*TODO: AuthenticatedLayoutから表示させる必要があるから*/}
+                                <NavLink href={route('items.index')} active={route().current('items.index')}>
                                     買い物リスト
                                 </NavLink>
                             </div>
-                            {/*<div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">*/}
-                            {/*    <NavLink href={route('category.index')} active={route().current('category.index')}>*/}
-                            {/*        Categories*/}
-                            {/*    </NavLink>*/}
-                            {/*</div>*/}
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href={route('schedules.index')} active={route().current('schedules.index')}>
+                                    カレンダー
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href={route('budgets.index')} active={route().current('budgets.index')}>
+                                    家計簿
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ml-6">
@@ -90,10 +101,18 @@ export default function Authenticated({ user, header, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
+                            ダッシュボード
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('items.index')} active={route().current('items.index')}>
+                            買い物リスト
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('schedules.index')} active={route().current('schedules.index')}>
+                            カレンダー
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('budgets.index')} active={route().current('budgets.index')}>
+                            家計簿
                         </ResponsiveNavLink>
                     </div>
-
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
                             <div className="font-medium text-base text-gray-800">{user.name}</div>
