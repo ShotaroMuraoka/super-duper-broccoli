@@ -10,9 +10,7 @@ export default function Budget ({ auth, items }) {
         >
             <Head title="Dashboard"/>
             <div className="flex-1 px-4 py-2">
-                <ShoppingList
-                    items={items}
-                />
+                準備中...
             </div>
         </AuthenticatedLayout>
     )
