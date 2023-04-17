@@ -15,7 +15,11 @@ class ItemController extends Controller
      */
     public function index(): Response
     {
-        return Inertia::render('ShoppingList', ['items' => Item::query()->orderByDesc('id')->get()]);
+        return Inertia::render('ShoppingList', [
+            'items' => Item::query()
+                ->orderBy('completed')
+                ->orderByDesc('id')->get()
+        ]);
     }
 
     /**
